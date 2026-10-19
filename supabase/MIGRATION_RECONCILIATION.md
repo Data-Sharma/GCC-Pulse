@@ -12,7 +12,7 @@ The live Supabase project already had the original GCC tables, but the repositor
 - `20261019050435_restrict_rls_auto_enable_execution.sql`: removes direct API-role execution of the event-trigger helper.
 - `20261019050535_index_foreign_keys.sql`: indexes for foreign-key lookups.
 - `20261019053604_harden_rate_limit_and_public_claims.sql` and `20261019053653_harden_public_claims_and_rate_limit_function.sql`: preserve the applied hardening steps in remote migration history.
-- `20261019054000_index_report_evidence_fk.sql`: covers the report-evidence composite foreign key.
+- `20261019053721_index_report_evidence_fk.sql`: covers the report-evidence composite foreign key.
 
 ## Safety notes
 
