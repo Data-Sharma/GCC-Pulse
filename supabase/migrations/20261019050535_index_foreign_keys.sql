@@ -1,0 +1,17 @@
+create index if not exists city_metrics_source_id_idx on public.city_metrics(source_id);
+create index if not exists evidence_claims_company_id_idx on public.evidence_claims(company_id);
+create index if not exists evidence_claims_location_id_idx on public.evidence_claims(location_id);
+create index if not exists expansion_signals_company_id_idx on public.expansion_signals(company_id);
+create index if not exists expansion_signals_source_id_idx on public.expansion_signals(source_id);
+create index if not exists gcc_chat_conversations_profile_user_idx on public.gcc_chat_conversations(profile_id, user_id);
+create index if not exists gcc_chat_conversations_report_user_idx on public.gcc_chat_conversations(report_id, user_id);
+create index if not exists gcc_chat_messages_user_id_idx on public.gcc_chat_messages(user_id);
+create index if not exists gcc_ingestion_stage_runs_document_source_idx on public.gcc_ingestion_stage_runs(document_id, source_id);
+create index if not exists gcc_ingestion_stage_runs_source_id_idx on public.gcc_ingestion_stage_runs(source_id);
+create index if not exists gcc_ingestion_stage_runs_user_id_idx on public.gcc_ingestion_stage_runs(user_id);
+create index if not exists gcc_knowledge_chunks_document_source_idx on public.gcc_knowledge_chunks(document_id, source_id);
+create index if not exists gcc_knowledge_sources_profile_user_idx on public.gcc_knowledge_sources(profile_id, user_id);
+create index if not exists gcc_locations_company_id_idx on public.gcc_locations(company_id);
+create index if not exists gcc_report_evidence_chunk_source_document_idx on public.gcc_report_evidence(chunk_id, source_id, document_id);
+create index if not exists gcc_report_evidence_source_id_idx on public.gcc_report_evidence(source_id);
+create index if not exists gcc_reports_profile_user_idx on public.gcc_reports(profile_id, user_id);
