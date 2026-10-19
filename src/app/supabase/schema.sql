@@ -99,7 +99,8 @@ create policy "Public can read locations" on public.gcc_locations for select to 
 drop policy if exists "Public can read sources" on public.sources;
 create policy "Public can read sources" on public.sources for select to anon, authenticated using (true);
 drop policy if exists "Public can read claims" on public.evidence_claims;
-create policy "Public can read claims" on public.evidence_claims for select to anon, authenticated using (true);
+drop policy if exists "Public can read approved claims" on public.evidence_claims;
+create policy "Public can read approved claims" on public.evidence_claims for select to anon, authenticated using (review_status = 'approved');
 drop policy if exists "Public can read providers" on public.providers;
 create policy "Public can read providers" on public.providers for select to anon, authenticated using (true);
 drop policy if exists "Public can read city metrics" on public.city_metrics;
