@@ -1,6 +1,5 @@
--- Reproducible baseline copied from src/app/supabase/schema.sql.
--- Idempotent table/index/policy statements preserve compatibility with an already-provisioned database.
-
+-- Reproducible idempotent baseline based on src/app/supabase/schema.sql.
+-- Public claims are restricted to approved records to match current database security.
 create extension if not exists pgcrypto;
 
 create table if not exists public.companies (
@@ -102,7 +101,8 @@ create policy "Public can read locations" on public.gcc_locations for select to 
 drop policy if exists "Public can read sources" on public.sources;
 create policy "Public can read sources" on public.sources for select to anon, authenticated using (true);
 drop policy if exists "Public can read claims" on public.evidence_claims;
-create policy "Public can read claims" on public.evidence_claims for select to anon, authenticated using (true);
+drop policy if exists "Public can read approved claims" on public.evidence_claims;
+create policy "Public can read approved claims" on public.evidence_claims for select to anon, authenticated using (review_status = 'approved');
 drop policy if exists "Public can read providers" on public.providers;
 create policy "Public can read providers" on public.providers for select to anon, authenticated using (true);
 drop policy if exists "Public can read city metrics" on public.city_metrics;
